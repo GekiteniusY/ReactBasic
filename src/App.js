@@ -1,6 +1,6 @@
 // import logo from "./logo.svg";
 import "./App.css";
-import { Article } from "./component/index";
+import { Article, TextInput, Counter } from "./component/index";
 
 function App() {
   return (
@@ -10,14 +10,8 @@ function App() {
           title={"新・日本一わかりやすいReact入門1"}
           content={"今日のトピックはpropsについて"}
         />
-        <Article
-          title={"新・日本一わかりやすいReact入門2"}
-          content={"今日のトピックはpropsについて"}
-        />
-        <Article
-          title={"新・日本一わかりやすいReact入門3"}
-          content={"今日のトピックはpropsについて"}
-        />
+        <TextInput />
+        <Counter />
       </div>
     </>
   );
