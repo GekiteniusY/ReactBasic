@@ -1,6 +1,6 @@
 // import logo from "./logo.svg";
 import "./App.css";
-import { Article, TextInput, Counter } from "./component/index";
+import { Article, TextInput, Counter, ToggleButton } from "./component/index";
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
         />
         <TextInput />
         <Counter />
+        <ToggleButton />
       </div>
     </>
   );

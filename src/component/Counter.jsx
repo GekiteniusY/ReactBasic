@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const Counter = () => {
     // 初期値が0のカウンターの状態を管理するstate
@@ -32,6 +32,16 @@ const Counter = () => {
     const countDown = () => {
         setCount(prevState => prevState - 1)
     }
+
+    // 毎回実行されるuseEffect
+    useEffect(() => {
+        console.log("Current count is...", count)
+    })
+
+    // 初回のみ実行されるuseEffect
+    useEffect(() => {
+        console.log("First: Current count is...", count)
+    }, [])
 
     return (
         <div>
