@@ -1,8 +1,27 @@
 // import logo from "./logo.svg";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { Article, TextInput, Counter, ToggleButton } from "./component/index";
 
 function App() {
+  const [name, setName] = useState("");
+  const [id, setId] = useState("deatiger");
+  const ids = ["deatiger", "gaearon", "aws", "google", "facebook"];
+  const getRandomId = () => {
+    const _id = ids[Math.floor(Math.random() * ids.length)];
+    setId(_id);
+  };
+
+  useEffect(() => {
+    fetch(`https://api.github.com/users/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setName(data.name);
+      })
+      .catch((error) => console.error());
+  }, [id]);
+
   return (
     <>
       <div>
@@ -11,8 +30,12 @@ function App() {
           content={"今日のトピックはpropsについて"}
         />
         <TextInput />
-        <Counter />
-        <ToggleButton />
+        <p>
+          {id}の、Github上の名前は{name}です
+        </p>
+        <button onClick={getRandomId}>IDを変更</button>
+        {/* <Counter /> */}
+        {/* <ToggleButton /> */}
       </div>
     </>
   );
